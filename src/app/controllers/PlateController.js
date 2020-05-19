@@ -4,7 +4,7 @@ class PlateController {
   async index(req, res) {
     const { restaurantId } = req.params;
 
-    const plates = Plate.find({ restaurantId });
+    const plates = await Plate.find({ restaurantId });
 
     return res.json(plates);
   }
@@ -12,7 +12,13 @@ class PlateController {
   async show(req, res) {
     const { plateId } = req.params;
 
-    const plate = Plate.findById(plateId);
+    const plate = await Plate.findById(plateId);
+
+    return res.json(plate);
+  }
+
+  async store(req, res) {
+    const plate = await Plate.create(req.body);
 
     return res.json(plate);
   }
