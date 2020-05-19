@@ -7,8 +7,10 @@ const routes = new Router();
 
 routes.get('/restaurants', RestaurantController.index);
 routes.get('/restaurants/:id', RestaurantController.show);
+routes.post('/restaurants', RestaurantController.store);
 
-routes.get('/plates/:restaurantId', PlateController.index);
-routes.get('/plates/:id', PlateController.show);
+routes.get('/plates/restaurant/:restaurantId', PlateController.index);
+routes.get('/plates/:plateId', PlateController.show);
+routes.post('/plates', PlateController.store);
 
 export default routes;
