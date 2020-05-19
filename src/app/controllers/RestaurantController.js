@@ -14,6 +14,12 @@ class RestaurantController {
 
     return res.json(restaurant);
   }
+
+  async store(req, res) {
+    const restaurant = await Restaurant.create(req.body);
+
+    return res.json(restaurant);
+  }
 }
 
 export default new RestaurantController();
